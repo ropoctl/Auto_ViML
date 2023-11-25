@@ -2591,7 +2591,7 @@ def Auto_ViML(train, target, test='',sample_submission='',hyper_param='RS', feat
         print('Training model on complete Train data and Predicting using given Test Data...')
     ################        I M P O R T A N T: C O M B I N I N G  D A T A ######################
     #### This is Second time: we combine train and CV into Train and Test Sets #################
-    train = part_train.append(part_cv)
+    train = pd.concat([part_train, part_cv])
     important_features = [x for x in list(train) if x not in target]
     ############################################################################################
     if model_label == 'Single_Label':
